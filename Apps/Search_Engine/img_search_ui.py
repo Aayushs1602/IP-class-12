@@ -16,7 +16,7 @@ from PIL import Image
 import io
 
 API_KEY = 'API_KEY_FROM_GOOGLE'
-SEARCH_ENGINE_ID = 'SEARCH_ENGINE_ID'
+SEARCH_ENGINE_ID = 'SEARCH_ENGINE_ID_FROM_GOOGLE'
 
 
 class Ui_MainWindow(object):
