@@ -1,8 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import requests
 
-API_KEY = 'AIzaSyDKj_fEv75prOBKSYA0GvOD-LYdQFZ_xnQ'
-SEARCH_ENGINE_ID = '013447020390165228750:k7h2w2rnak8'
+API_KEY = 'API_KEY_GOOGLE'
+SEARCH_ENGINE_ID = 'SEARCH_ENGINE_ID_FROM_GOOGLE'
 
 
 class Ui_MainWindow(object):
