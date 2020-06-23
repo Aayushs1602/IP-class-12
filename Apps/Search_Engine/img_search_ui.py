@@ -15,8 +15,8 @@ from PyQt5.QtGui import QPixmap
 from PIL import Image
 import io
 
-API_KEY = 'AIzaSyD001rDK_gE2qkZo8mg5jDS8hSc04FY2ug'
-SEARCH_ENGINE_ID = '001089964355375223555:eoos11d3zqw'
+API_KEY = 'API_KEY_FROM_GOOGLE'
+SEARCH_ENGINE_ID = 'SEARCH_ENGINE_ID'
 
 
 class Ui_MainWindow(object):
