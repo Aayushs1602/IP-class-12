@@ -64,7 +64,7 @@ def update():
         title.config(text='Out of news articles come back later')
 
 
-newsapi = NewsApiClient(api_key='18d4d239957f4ed9b5dd8ecb8308dd09')
+newsapi = NewsApiClient(api_key='GET_THIS_BY_SIGNIN_UP')
 
 top_headlines = newsapi.get_top_headlines(sources='google-news-in, the-times-of-india ,bbc-news, the-verge')
 articles = top_headlines['articles']
@@ -75,10 +75,7 @@ root.wm_iconbitmap(r'res\icon.ico')
 title = ttk.Label(root, text=articles[cur]['title'], font=('Helvetica', 20, 'bold'), wraplengt=720, justify='center')
 title.grid(row=0, column=0, columnspan=2)
 
-# hdr = {
-#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)\
-#      Chrome/83.0.4103.106 Safari/537.36'
-#     , 'Content-Length': '136963'}
+
 while True:
     try:
         #req = urllib.request.Request(articles[cur]['urlToImage'], headers=hdr)
