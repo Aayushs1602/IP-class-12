@@ -1,0 +1,1 @@
+requests, pyqt5, PIL
