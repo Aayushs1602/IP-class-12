@@ -1,9 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import requests
+import requests, textwrap
+from requests_html import HTML
 
-API_KEY = 'API KEY FROM GOOGLE'
-SEARCH_ENGINE_ID = 'EARCHID FROM GOOGLE'
-
+TEXT_WRAP_LEN = 75
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -36,7 +35,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_1)
         self.domain_1 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_1.setFont(font)
         self.domain_1.setObjectName("domain_1")
         self.verticalLayout.addWidget(self.domain_1)
@@ -62,7 +61,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_2)
         self.domain_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_2.setFont(font)
         self.domain_2.setObjectName("domain_2")
         self.verticalLayout.addWidget(self.domain_2)
@@ -86,7 +85,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_3)
         self.domain_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_3.setFont(font)
         self.domain_3.setObjectName("domain_3")
         self.verticalLayout.addWidget(self.domain_3)
@@ -110,7 +109,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_4)
         self.domain_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_4.setFont(font)
         self.domain_4.setObjectName("domain_4")
         self.verticalLayout.addWidget(self.domain_4)
@@ -134,7 +133,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_5)
         self.domain_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_5.setFont(font)
         self.domain_5.setObjectName("domain_5")
         self.verticalLayout.addWidget(self.domain_5)
@@ -158,7 +157,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_6)
         self.domain_6 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_6.setFont(font)
         self.domain_6.setObjectName("domain_6")
         self.verticalLayout.addWidget(self.domain_6)
@@ -182,7 +181,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_7)
         self.domain_7 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_7.setFont(font)
         self.domain_7.setObjectName("domain_7")
         self.verticalLayout.addWidget(self.domain_7)
@@ -206,7 +205,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_8)
         self.domain_8 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_8.setFont(font)
         self.domain_8.setObjectName("domain_8")
         self.verticalLayout.addWidget(self.domain_8)
@@ -230,7 +229,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_9)
         self.domain_9 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_9.setFont(font)
         self.domain_9.setObjectName("domain_9")
         self.verticalLayout.addWidget(self.domain_9)
@@ -254,7 +253,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.title_10)
         self.domain_10 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(8)
         self.domain_10.setFont(font)
         self.domain_10.setObjectName("domain_10")
         self.verticalLayout.addWidget(self.domain_10)
@@ -269,174 +268,174 @@ class Ui_MainWindow(object):
         self.blank_10.setText("")
         self.blank_10.setObjectName("blank_10")
         self.verticalLayout.addWidget(self.blank_10)
-        # self.title_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_11.setFont(font)
-        # self.title_11.setOpenExternalLinks(True)
-        # self.title_11.setObjectName("title_11")
-        # self.verticalLayout.addWidget(self.title_11)
-        # self.domain_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_11.setFont(font)
-        # self.domain_11.setObjectName("domain_11")
-        # self.verticalLayout.addWidget(self.domain_11)
-        # self.desc_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_11.setFont(font)
-        # self.desc_11.setWordWrap(True)
-        # self.desc_11.setObjectName("desc_11")
-        # self.verticalLayout.addWidget(self.desc_11)
-        # self.blank_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_11.setText("")
-        # self.blank_11.setObjectName("blank_11")
-        # self.verticalLayout.addWidget(self.blank_11)
-        # self.title_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_12.setFont(font)
-        # self.title_12.setOpenExternalLinks(True)
-        # self.title_12.setObjectName("title_12")
-        # self.verticalLayout.addWidget(self.title_12)
-        # self.domain_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_12.setFont(font)
-        # self.domain_12.setObjectName("domain_12")
-        # self.verticalLayout.addWidget(self.domain_12)
-        # self.desc_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_12.setFont(font)
-        # self.desc_12.setWordWrap(True)
-        # self.desc_12.setObjectName("desc_12")
-        # self.verticalLayout.addWidget(self.desc_12)
-        # self.blank_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_12.setText("")
-        # self.blank_12.setObjectName("blank_12")
-        # self.verticalLayout.addWidget(self.blank_12)
-        # self.title_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_13.setFont(font)
-        # self.title_13.setOpenExternalLinks(True)
-        # self.title_13.setObjectName("title_13")
-        # self.verticalLayout.addWidget(self.title_13)
-        # self.domain_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_13.setFont(font)
-        # self.domain_13.setObjectName("domain_13")
-        # self.verticalLayout.addWidget(self.domain_13)
-        # self.desc_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_13.setFont(font)
-        # self.desc_13.setWordWrap(True)
-        # self.desc_13.setObjectName("desc_13")
-        # self.verticalLayout.addWidget(self.desc_13)
-        # self.blank_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_13.setText("")
-        # self.blank_13.setObjectName("blank_13")
-        # self.verticalLayout.addWidget(self.blank_13)
-        # self.title_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_14.setFont(font)
-        # self.title_14.setOpenExternalLinks(True)
-        # self.title_14.setObjectName("title_14")
-        # self.verticalLayout.addWidget(self.title_14)
-        # self.domain_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_14.setFont(font)
-        # self.domain_14.setObjectName("domain_14")
-        # self.verticalLayout.addWidget(self.domain_14)
-        # self.desc_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_14.setFont(font)
-        # self.desc_14.setWordWrap(True)
-        # self.desc_14.setObjectName("desc_14")
-        # self.verticalLayout.addWidget(self.desc_14)
-        # self.blank_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_14.setText("")
-        # self.blank_14.setObjectName("blank_14")
-        # self.verticalLayout.addWidget(self.blank_14)
-        # self.title_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_15.setFont(font)
-        # self.title_15.setOpenExternalLinks(True)
-        # self.title_15.setObjectName("title_15")
-        # self.verticalLayout.addWidget(self.title_15)
-        # self.domain_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_15.setFont(font)
-        # self.domain_15.setObjectName("domain_15")
-        # self.verticalLayout.addWidget(self.domain_15)
-        # self.desc_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_15.setFont(font)
-        # self.desc_15.setWordWrap(True)
-        # self.desc_15.setObjectName("desc_15")
-        # self.verticalLayout.addWidget(self.desc_15)
-        # self.blank_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_15.setText("")
-        # self.blank_15.setObjectName("blank_15")
-        # self.verticalLayout.addWidget(self.blank_15)
-        # self.title_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_16.setFont(font)
-        # self.title_16.setOpenExternalLinks(True)
-        # self.title_16.setObjectName("title_16")
-        # self.verticalLayout.addWidget(self.title_16)
-        # self.domain_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_16.setFont(font)
-        # self.domain_16.setObjectName("domain_16")
-        # self.verticalLayout.addWidget(self.domain_16)
-        # self.desc_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_16.setFont(font)
-        # self.desc_16.setWordWrap(True)
-        # self.desc_16.setObjectName("desc_16")
-        # self.verticalLayout.addWidget(self.desc_16)
-        # self.blank_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_16.setText("")
-        # self.blank_16.setObjectName("blank_16")
-        # self.verticalLayout.addWidget(self.blank_16)
-        # self.title_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(15)
-        # self.title_17.setFont(font)
-        # self.title_17.setOpenExternalLinks(True)
-        # self.title_17.setObjectName("title_17")
-        # self.verticalLayout.addWidget(self.title_17)
-        # self.domain_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(6)
-        # self.domain_17.setFont(font)
-        # self.domain_17.setObjectName("domain_17")
-        # self.verticalLayout.addWidget(self.domain_17)
-        # self.desc_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.desc_17.setFont(font)
-        # self.desc_17.setWordWrap(True)
-        # self.desc_17.setObjectName("desc_17")
-        # self.verticalLayout.addWidget(self.desc_17)
-        # self.blank_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        # self.blank_17.setText("")
-        # self.blank_17.setObjectName("blank_17")
-        # self.verticalLayout.addWidget(self.blank_17)
+        self.title_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_11.setFont(font)
+        self.title_11.setOpenExternalLinks(True)
+        self.title_11.setObjectName("title_11")
+        self.verticalLayout.addWidget(self.title_11)
+        self.domain_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_11.setFont(font)
+        self.domain_11.setObjectName("domain_11")
+        self.verticalLayout.addWidget(self.domain_11)
+        self.desc_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_11.setFont(font)
+        self.desc_11.setWordWrap(True)
+        self.desc_11.setObjectName("desc_11")
+        self.verticalLayout.addWidget(self.desc_11)
+        self.blank_11 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_11.setText("")
+        self.blank_11.setObjectName("blank_11")
+        self.verticalLayout.addWidget(self.blank_11)
+        self.title_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_12.setFont(font)
+        self.title_12.setOpenExternalLinks(True)
+        self.title_12.setObjectName("title_12")
+        self.verticalLayout.addWidget(self.title_12)
+        self.domain_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_12.setFont(font)
+        self.domain_12.setObjectName("domain_12")
+        self.verticalLayout.addWidget(self.domain_12)
+        self.desc_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_12.setFont(font)
+        self.desc_12.setWordWrap(True)
+        self.desc_12.setObjectName("desc_12")
+        self.verticalLayout.addWidget(self.desc_12)
+        self.blank_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_12.setText("")
+        self.blank_12.setObjectName("blank_12")
+        self.verticalLayout.addWidget(self.blank_12)
+        self.title_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_13.setFont(font)
+        self.title_13.setOpenExternalLinks(True)
+        self.title_13.setObjectName("title_13")
+        self.verticalLayout.addWidget(self.title_13)
+        self.domain_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_13.setFont(font)
+        self.domain_13.setObjectName("domain_13")
+        self.verticalLayout.addWidget(self.domain_13)
+        self.desc_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_13.setFont(font)
+        self.desc_13.setWordWrap(True)
+        self.desc_13.setObjectName("desc_13")
+        self.verticalLayout.addWidget(self.desc_13)
+        self.blank_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_13.setText("")
+        self.blank_13.setObjectName("blank_13")
+        self.verticalLayout.addWidget(self.blank_13)
+        self.title_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_14.setFont(font)
+        self.title_14.setOpenExternalLinks(True)
+        self.title_14.setObjectName("title_14")
+        self.verticalLayout.addWidget(self.title_14)
+        self.domain_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_14.setFont(font)
+        self.domain_14.setObjectName("domain_14")
+        self.verticalLayout.addWidget(self.domain_14)
+        self.desc_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_14.setFont(font)
+        self.desc_14.setWordWrap(True)
+        self.desc_14.setObjectName("desc_14")
+        self.verticalLayout.addWidget(self.desc_14)
+        self.blank_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_14.setText("")
+        self.blank_14.setObjectName("blank_14")
+        self.verticalLayout.addWidget(self.blank_14)
+        self.title_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_15.setFont(font)
+        self.title_15.setOpenExternalLinks(True)
+        self.title_15.setObjectName("title_15")
+        self.verticalLayout.addWidget(self.title_15)
+        self.domain_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_15.setFont(font)
+        self.domain_15.setObjectName("domain_15")
+        self.verticalLayout.addWidget(self.domain_15)
+        self.desc_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_15.setFont(font)
+        self.desc_15.setWordWrap(True)
+        self.desc_15.setObjectName("desc_15")
+        self.verticalLayout.addWidget(self.desc_15)
+        self.blank_15 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_15.setText("")
+        self.blank_15.setObjectName("blank_15")
+        self.verticalLayout.addWidget(self.blank_15)
+        self.title_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_16.setFont(font)
+        self.title_16.setOpenExternalLinks(True)
+        self.title_16.setObjectName("title_16")
+        self.verticalLayout.addWidget(self.title_16)
+        self.domain_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_16.setFont(font)
+        self.domain_16.setObjectName("domain_16")
+        self.verticalLayout.addWidget(self.domain_16)
+        self.desc_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_16.setFont(font)
+        self.desc_16.setWordWrap(True)
+        self.desc_16.setObjectName("desc_16")
+        self.verticalLayout.addWidget(self.desc_16)
+        self.blank_16 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_16.setText("")
+        self.blank_16.setObjectName("blank_16")
+        self.verticalLayout.addWidget(self.blank_16)
+        self.title_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.title_17.setFont(font)
+        self.title_17.setOpenExternalLinks(True)
+        self.title_17.setObjectName("title_17")
+        self.verticalLayout.addWidget(self.title_17)
+        self.domain_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.domain_17.setFont(font)
+        self.domain_17.setObjectName("domain_17")
+        self.verticalLayout.addWidget(self.domain_17)
+        self.desc_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.desc_17.setFont(font)
+        self.desc_17.setWordWrap(True)
+        self.desc_17.setObjectName("desc_17")
+        self.verticalLayout.addWidget(self.desc_17)
+        self.blank_17 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.blank_17.setText("")
+        self.blank_17.setObjectName("blank_17")
+        self.verticalLayout.addWidget(self.blank_17)
         # self.title_18 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         # font = QtGui.QFont()
         # font.setPointSize(15)
@@ -528,23 +527,74 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         if self.search_input.text().strip() != '':
             _translate = QtCore.QCoreApplication.translate
-            query = self.search_input.text()
+            q = self.search_input.text()
             self.search_input.setText('')
-            num_pg = 1
+            domain_class = '.tjvcx'
+            description_class = 'span.st'
+            link_class = 'div.r'
+            title_class = '.DKV0Md'
 
-            page = 1
+            url = 'https://www.google.com/search?q=' + q
+            html_text = url_to_html(url)
+            r_html = HTML(html=html_text)
 
-            start = (page - 1) * 10 + 1
-            url = f"https://www.googleapis.com/customsearch/v1?key={API_KEY}&cx={SEARCH_ENGINE_ID}&q={query}&start={start}"
-            data = requests.get(url).json()
-            print(data)
-            search_items1 = data.get('items')
+            r_title = r_html.find(title_class)
 
-            # page = 2
-            # start = (page - 1) * 10 + 1
-            # url = f"https://www.googleapis.com/customsearch/v1?key={API_KEY}&cx={SEARCH_ENGINE_ID}&q={query}&start={start}"
-            # data = requests.get(url).json()
-            # search_items2 = data.get('items')
+            r_links = r_html.find(link_class)
+
+            r_description = r_html.find(description_class)
+
+            r_domain = r_html.find(domain_class)
+            li = []
+            for title, description, lks, domain in zip(r_title, r_description, r_links, r_domain):
+                lk = 'www.google.com'
+                for link in lks.links:
+                    if link[:7] != ['/search'] and link[:38] != 'https://webcache.googleusercontent.com':
+                        print(link)
+                        lk = link
+                        break
+                wrapper = textwrap.TextWrapper(width=TEXT_WRAP_LEN)
+                word_list = wrapper.wrap(text=description.text)
+                desc = '\n'.join(word_list)
+                li.append(
+                    {'link': lk, 'title': title.text, 'displayLink': domain.text, 'htmlSnippet': desc})
+                print(title.text)
+                print(domain.text)
+                print(description.text)
+                print('\n')
+
+            url = 'https://www.google.com/search?q=' + q + '&start=11'
+            html_text = url_to_html(url)
+            r_html = HTML(html=html_text)
+
+            r_title = r_html.find(title_class)
+
+            r_links = r_html.find(link_class)
+
+            r_description = r_html.find(description_class)
+
+            r_domain = r_html.find(domain_class)
+            for title, description, lks, domain in zip(r_title, r_description, r_links, r_domain):
+                lk = 'www.google.com'
+                for link in lks.links:
+                    if link[:7] != ['/search'] and link[:38] != 'https://webcache.googleusercontent.com':
+                        print(link)
+                        lk = link
+                        break
+                print(description.text)
+                wrapper = textwrap.TextWrapper(width=TEXT_WRAP_LEN)
+                word_list = wrapper.wrap(text=description.text)
+                desc = '\n'.join(word_list)
+                li.append(
+                    {'link': lk, 'title': title.text, 'displayLink': domain.text, 'htmlSnippet': desc})
+                print(title.text)
+                print(domain.text)
+                print('\n')
+
+            print(li, len(li))
+            search_items1 = search_items2 = li
+
+
 
             z=0
             self.title_1.setText(_translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
@@ -614,53 +664,53 @@ class Ui_MainWindow(object):
             self.domain_10.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
             self.desc_10.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            # z = 0
-            #
-            # self.title_11.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_11.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_11.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            #
-            # z += 1
-            #
-            # self.title_12.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_12.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_12.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            # z += 1
-            #
-            # self.title_13.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_13.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_13.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            #
-            # z += 1
-            #
-            # self.title_14.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_14.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_14.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            #
-            # z += 1
-            #
-            # self.title_15.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_15.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_15.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            #
-            # z += 1
-            #
-            # self.title_16.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_16.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_16.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            #
-            # z += 1
-            #
-            # self.title_17.setText(
-            #     _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            # self.domain_17.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            # self.desc_17.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+            z += 1
+
+            self.title_11.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_11.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_11.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+
+            z += 1
+
+            self.title_12.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_12.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_12.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+            z += 1
+
+            self.title_13.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_13.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_13.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+
+            z += 1
+
+            self.title_14.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_14.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_14.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+
+            z += 1
+
+            self.title_15.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_15.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_15.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+
+            z += 1
+
+            self.title_16.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_16.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_16.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+
+            z += 1
+
+            self.title_17.setText(
+                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+            self.domain_17.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+            self.desc_17.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
             #
             # z += 1
             #
@@ -684,6 +734,13 @@ class Ui_MainWindow(object):
             # self.desc_20.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
         else:
             pass
+
+
+def url_to_html(url, filename='cache.html'):
+    headers = {
+        "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
+    r = requests.get(url, headers=headers)
+    return r.text
 
 
 if __name__ == "__main__":
