@@ -28,7 +28,7 @@ def next(_event=None):
 def update():
     global title, img, description, original_site, cur
     title.config(text='Updating..........')
-    image = ImageTk.PhotoImage(Image.open(r'res\loading_img.png'))
+    image = ImageTk.PhotoImage(Image.open(r'assets\loading_img.png'))
     img.configure(image=image)
     img.image = image
     description.config(text='')
@@ -47,7 +47,7 @@ def update():
             elif prev_step == 'back':
                 cur -= 1
         except IndexError:
-            image = ImageTk.PhotoImage(Image.open(r'res\end.jpg'))
+            image = ImageTk.PhotoImage(Image.open(r'assets\end.jpg'))
             break
         except Exception:
             if prev_step == 'next':
@@ -73,7 +73,7 @@ cur = 0
 root = tk.Tk()
 root.title('NEWS | Top Headlines')
 root.resizable(0,0)
-root.wm_iconbitmap(r'res\icon.ico')
+root.wm_iconbitmap(r'assets\icon.ico')
 title = ttk.Label(root, text=articles[cur]['title'], font=('Helvetica', 20, 'bold'), wraplengt=720, justify='center')
 title.grid(row=0, column=0, columnspan=2)
 
