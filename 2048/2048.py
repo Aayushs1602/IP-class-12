@@ -6,7 +6,7 @@ import time
 pygame.font.init()
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('2048')
-pygame.display.set_icon(pygame.image.load('2048_logo.png'))
+pygame.display.set_icon(pygame.image.load(r'assets/2048_logo.png'))
 TILE_FONT = pygame.font.SysFont(FONT, FONT_SIZE)
 START_MENU_FONT = pygame.font.SysFont(FONT, FONT_SIZE)
 SCORE_FONT = pygame.font.SysFont(FONT, 30)
@@ -543,9 +543,9 @@ def draw_grid():
 def game_over():
     # game_over_label = START_MENU_FONT.render('Game Over...', 1, BLACK)
     # WIN.blit(game_over_label,(WIDTH//2 - game_over_label.get_width()//2, WIDTH//2 - game_over_label.get_height()//2))
-    time.sleep(2)
+    time.sleep(0.5)
     WIN.fill(BLACK)
-    im = pygame.image.load('GAME OVER.png')
+    im = pygame.image.load(r'assets/2048_GAME_OVER.png')
     WIN.blit(im, (WIDTH//2 - im.get_width()//2, HEIGHT//2 - im.get_height()//2))
     pygame.display.update()
     time.sleep(2)
@@ -647,9 +647,7 @@ def main():
             high_score_label = SCORE_FONT.render(f'HIGH SCORE: {max(SCORE_LI)}', 1, BLACK)
             draw_win(tiles)
             if '' not in GRID:
-                d = check_game_over()
-                print(d)
-                if d:
+                if check_game_over():
                     game_over()
                     run = False
 
