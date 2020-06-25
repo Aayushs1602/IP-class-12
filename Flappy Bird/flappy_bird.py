@@ -29,16 +29,16 @@ SCORE_FONT = pygame.font.SysFont('comicsans', 30)
 BIRD_IMG_S = []
 for z in range(1, 4):
     n = "bird" + str(z) + '.png'
-    i = pygame.image.load(os.path.join('imgs', n))
+    i = pygame.image.load(os.path.join('assets', n))
     BIRD_IMG_S.append(pygame.transform.scale(i, (int(i.get_width() * SCALE_FACTOR),
                                                  int(i.get_height() * SCALE_FACTOR))))
 
-i = pygame.image.load(r'imgs\pipe.png')
+i = pygame.image.load(r'assets\pipe.png')
 PIPE_IMG = pygame.transform.scale(i, (int(i.get_width() * SCALE_FACTOR), int(i.get_height() * SCALE_FACTOR)))
 
-i = pygame.image.load(r'imgs\base.png')
+i = pygame.image.load(r'assets\base.png')
 BASE_IMG = pygame.transform.scale(i, (int(i.get_width() * SCALE_FACTOR), int(i.get_height() * SCALE_FACTOR)))
-BG_IMG = pygame.transform.scale(pygame.image.load(r'imgs\bg.png'), (WIN_WIDTH, WIN_HEIGHT))
+BG_IMG = pygame.transform.scale(pygame.image.load(r'assets\flappy_bird_bg.png'), (WIN_WIDTH, WIN_HEIGHT))
 
 
 # Bird class for rendering and actions related to players character
