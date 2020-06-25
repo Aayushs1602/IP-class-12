@@ -1,0 +1,4 @@
+Modules used :-
+1) tkinter
+2) collections
+30 random
