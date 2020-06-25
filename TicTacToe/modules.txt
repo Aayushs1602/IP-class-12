@@ -1,0 +1,5 @@
+modules used:
+1) pygame
+2) sys
+3) time
+4) copy
