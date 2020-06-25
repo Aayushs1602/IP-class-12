@@ -1,5 +1,4 @@
 from settings import *
-from copy import deepcopy
 import pygame
 import random
 import time
