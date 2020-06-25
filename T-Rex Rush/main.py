@@ -1,4 +1,5 @@
 import os
+import sys
 import pygame
 import random
 from pygame import *
@@ -8,7 +9,7 @@ pygame.init()
 scr_size = (width, height) = (600, 150)
 FPS = 60
 gravity = 0.6
-game_icon = pygame.image.load('images/app-ico.png')
+game_icon = pygame.image.load('assets/app-ico.png')
 pygame.display.set_icon(game_icon)
 black = (0, 0, 0)
 white = (255, 255, 255)
@@ -20,9 +21,9 @@ screen = pygame.display.set_mode(scr_size)
 clock = pygame.time.Clock()
 pygame.display.set_caption("T-Rex Rush")
 
-jump_sound = pygame.mixer.Sound('images/jump.wav')
-die_sound = pygame.mixer.Sound('images/die.wav')
-checkPoint_sound = pygame.mixer.Sound('images/checkPoint.wav')
+jump_sound = pygame.mixer.Sound('assets/jump.wav')
+die_sound = pygame.mixer.Sound('assets/die.wav')
+checkPoint_sound = pygame.mixer.Sound('assets/checkPoint.wav')
 
 
 def load_image(
@@ -31,7 +32,7 @@ def load_image(
         sizey=-1,
         colorkey=None,
 ):
-    fullname = os.path.join('images', name)
+    fullname = os.path.join('assets', name)
     image = pygame.image.load(fullname)
     image = image.convert()
     if colorkey is not None:
@@ -53,7 +54,7 @@ def load_sprite_sheet(
         scaley=-1,
         colorkey=None,
 ):
-    fullname = os.path.join('images', sheetname)
+    fullname = os.path.join('assets', sheetname)
     sheet = pygame.image.load(fullname)
     sheet = sheet.convert()
 
@@ -307,9 +308,6 @@ def introscreen():
     temp_ground_rect.left = width / 20
     temp_ground_rect.bottom = height
 
-    logo, logo_rect = load_image('logo.png', 300, 140, -1)
-    logo_rect.centerx = width * 0.6
-    logo_rect.centery = height * 0.6
     while not gameStart:
         if pygame.display.get_surface() is None:
             print("Couldn't load display surface")
