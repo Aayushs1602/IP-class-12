@@ -100,7 +100,7 @@ while True:
 
         parts.clear()
 
-        delay = 0
+        delay = 0.1
         score = 0
 
         pen.clear()
@@ -149,7 +149,7 @@ while True:
 
             parts.clear()
 
-            delay = 0
+            delay = 0.1
             score = 0
 
             pen.clear()
