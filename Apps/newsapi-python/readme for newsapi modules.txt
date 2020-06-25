@@ -1,1 +1,0 @@
-certifi, urllib3, chardet, idna, requests, newsapi-python, pillow
