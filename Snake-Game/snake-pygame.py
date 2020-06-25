@@ -150,7 +150,7 @@ def redraw_window(surface):
         surface.fill((0, 0, 0))
         s.draw(surface)
         snack.draw(surface)
-        draw_grid(width, surface)
+        # draw_grid(width, surface)
         pygame.display.update()
     except pygame.error:
         pass
