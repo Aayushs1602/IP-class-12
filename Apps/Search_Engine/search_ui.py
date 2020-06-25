@@ -8,7 +8,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 720)
+        MainWindow.setFixedSize(1280, 720)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        # self.field.returnPressed.connect(self.retranslateUi)
         self.centralwidget.setObjectName("centralwidget")
         self.search_btn = QtWidgets.QPushButton(self.centralwidget)
         self.search_btn.setGeometry(QtCore.QRect(720, 20, 111, 41))
