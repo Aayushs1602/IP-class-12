@@ -1,1 +1,5 @@
-requests, pyqt5, PIL
+Modules used :-
+1) PyQt5
+2) requests
+3) requests_html
+4) textwrap

@@ -6,6 +6,8 @@ pygame.font.init()
 
 SCORE_LI = []
 
+ENEMY_INCREMENT = 3
+
 DMG_PER_SHOT = 10
 MAX_HEALTH = 100
 
@@ -221,10 +223,10 @@ def main():
 
         if len(enemies) == 0:
             level += 1
-            wave_length += 5
+            wave_length += ENEMY_INCREMENT
             for i in range(wave_length):
                 enemy = Enemy(random.randrange(50, WIDTH - 100),
-                              random.randrange(-1500 * ((level // 5) + 1), -100),
+                              random.randrange(-1500 * ((level // ENEMY_INCREMENT) + 1), -100),
                               random.choice(['r', 'g', 'b']))
                 enemies.append(enemy)
 

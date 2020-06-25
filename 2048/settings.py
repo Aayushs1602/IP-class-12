@@ -1,0 +1,18 @@
+WIDTH, HEIGHT = 550, 650
+LINE_THICKNESS = 10
+TILE_WIDTH = TILE_HEIGHT = (WIDTH - LINE_THICKNESS*5)//4
+
+POINTS_SCALE_FACTOR = 5
+
+FONT = 'comicsans'
+FONT_SIZE = 40
+
+# Colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+TILE_COLORS = {2: WHITE, 4: (245, 242, 208), 8: (255, 158, 158), 16: (207, 99, 99),
+               32: (255, 107, 107), 64: (255, 87, 87), 128: (255, 74, 74), 256: (255, 56, 56),
+               512: (217, 33, 33), 1024: (194, 12, 12), 2048: (255, 0, 0)}
+
+LINE_COLOR = (138, 138, 92)
+BG_COLOR = (225, 225, 208)

@@ -8,7 +8,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 720)
+        MainWindow.setFixedSize(1280, 720)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        # self.field.returnPressed.connect(self.retranslateUi)
         self.centralwidget.setObjectName("centralwidget")
         self.search_btn = QtWidgets.QPushButton(self.centralwidget)
         self.search_btn.setGeometry(QtCore.QRect(720, 20, 111, 41))
@@ -595,122 +597,124 @@ class Ui_MainWindow(object):
             search_items1 = search_items2 = li
 
 
+            try:
+                z=0
+                self.title_1.setText(_translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_1.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_1.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            z=0
-            self.title_1.setText(_translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_1.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_1.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z+=1
 
-            z+=1
+                self.title_2.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_2.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_2.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_2.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_2.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_2.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z+=1
 
-            z+=1
+                self.title_3.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_3.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_3.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_3.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_3.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_3.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_4.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_4.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_4.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_4.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_4.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_4.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_5.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_5.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_5.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_5.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_5.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_5.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_6.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_6.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_6.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_6.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_6.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_6.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_7.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_7.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_7.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_7.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_7.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_7.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_8.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_8.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_8.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_8.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_8.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_8.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_9.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_9.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_9.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_9.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_9.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_9.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_10.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
+                self.domain_10.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
+                self.desc_10.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
 
-            self.title_10.setText(
-                _translate("MainWindow", f"<a href=\'{search_items1[z].get('link')}\'>{search_items1[z].get('title')}</p>"))
-            self.domain_10.setText(_translate("MainWindow", search_items1[z].get('displayLink')))
-            self.desc_10.setText(_translate("MainWindow", search_items1[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_11.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_11.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_11.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
 
-            self.title_11.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_11.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_11.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_12.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_12.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_12.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                z += 1
 
-            self.title_12.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_12.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_12.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
-            z += 1
+                self.title_13.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_13.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_13.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
 
-            self.title_13.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_13.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_13.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_14.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_14.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_14.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
 
-            self.title_14.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_14.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_14.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_15.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_15.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_15.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
 
-            self.title_15.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_15.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_15.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
+                self.title_16.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_16.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_16.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
 
-            self.title_16.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_16.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_16.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                z += 1
 
-            z += 1
-
-            self.title_17.setText(
-                _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
-            self.domain_17.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
-            self.desc_17.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+                self.title_17.setText(
+                    _translate("MainWindow", f"<a href=\'{search_items2[z].get('link')}\'>{search_items2[z].get('title')}</p>"))
+                self.domain_17.setText(_translate("MainWindow", search_items2[z].get('displayLink')))
+                self.desc_17.setText(_translate("MainWindow", search_items2[z].get('htmlSnippet')))
+            except IndexError:
+                pass
             #
             # z += 1
             #

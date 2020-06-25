@@ -251,6 +251,7 @@ def main():
     window = Tk()
     # set program title
     window.title("Minesweeper")
+    window.resizable(0,0)
     window.wm_iconbitmap(r'images\mine.ico')
     minesweeper = Minesweeper(window)
     # run event loop
