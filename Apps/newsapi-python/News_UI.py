@@ -72,6 +72,7 @@ articles = top_headlines['articles']
 cur = 0
 root = tk.Tk()
 root.title('NEWS | Top Headlines')
+root.resizable(0,0)
 root.wm_iconbitmap(r'res\icon.ico')
 title = ttk.Label(root, text=articles[cur]['title'], font=('Helvetica', 20, 'bold'), wraplengt=720, justify='center')
 title.grid(row=0, column=0, columnspan=2)
