@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import requests, textwrap
+import sys
 from requests_html import HTML
 
 TEXT_WRAP_LEN = 75
@@ -747,12 +748,15 @@ def url_to_html(url, filename='cache.html'):
     return r.text
 
 
-if __name__ == "__main__":
-    import sys
-
+def run_search_ui():
+    global app, MainWindow
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    run()

@@ -6,8 +6,6 @@ pygame.font.init()
 
 SCORE_LI = []
 
-ENEMY_INCREMENT = 3
-
 DMG_PER_SHOT = 10
 MAX_HEALTH = 100
 
@@ -15,7 +13,7 @@ FPS = 60
 WIDTH, HEIGHT = 750, 750
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Invaders")
-pygame.display.set_icon(pygame.image.load(r'assets\logo.jpg'))
+pygame.display.set_icon(pygame.image.load(r'assets\space_invaders_logo.jpg'))
 
 # LOADING THE ASSETS
 RED_SPACE_SHIP = pygame.image.load(r'assets\pixel_ship_red_small.png')
@@ -223,10 +221,10 @@ def main():
 
         if len(enemies) == 0:
             level += 1
-            wave_length += ENEMY_INCREMENT
+            wave_length += 5
             for i in range(wave_length):
                 enemy = Enemy(random.randrange(50, WIDTH - 100),
-                              random.randrange(-1500 * ((level // ENEMY_INCREMENT) + 1), -100),
+                              random.randrange(-1500 * ((level // 5) + 1), -100),
                               random.choice(['r', 'g', 'b']))
                 enemies.append(enemy)
 

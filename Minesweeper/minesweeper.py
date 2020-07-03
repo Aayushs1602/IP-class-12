@@ -30,15 +30,15 @@ class Minesweeper:
 
         # import images
         self.images = {
-            "plain": PhotoImage(file="images/tile_plain.gif"),
-            "clicked": PhotoImage(file="images/tile_clicked.gif"),
-            "mine": PhotoImage(file="images/tile_mine.gif"),
-            "flag": PhotoImage(file="images/tile_flag.gif"),
-            "wrong": PhotoImage(file="images/tile_wrong.gif"),
+            "plain": PhotoImage(file="assets/tile_plain.gif"),
+            "clicked": PhotoImage(file="assets/tile_clicked.gif"),
+            "mine": PhotoImage(file="assets/tile_mine.gif"),
+            "flag": PhotoImage(file="assets/tile_flag.gif"),
+            "wrong": PhotoImage(file="assets/tile_wrong.gif"),
             "numbers": []
         }
         for i in range(1, 9):
-            self.images["numbers"].append(PhotoImage(file="images/tile_" + str(i) + ".gif"))
+            self.images["numbers"].append(PhotoImage(file="assets/tile_" + str(i) + ".gif"))
 
         # set up frame
         self.tk = tk
@@ -252,7 +252,7 @@ def main():
     # set program title
     window.title("Minesweeper")
     window.resizable(0,0)
-    window.wm_iconbitmap(r'images\mine.ico')
+    window.wm_iconbitmap(r'assets\mine.ico')
     minesweeper = Minesweeper(window)
     # run event loop
     window.mainloop()
